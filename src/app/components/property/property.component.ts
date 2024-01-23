@@ -7,11 +7,13 @@ import { LoadingComponent } from '../shared/loading/loading.component';
 import { AmenitiesComponent } from '../amenities/amenities.component';
 import { ReviewsPropComponent } from '../reviews-prop/reviews-prop.component';
 import { MapComponent } from '../shared/map/map.component';
+import { RegisterComponent } from '../user/register/register.component';
+import { LoginComponent } from '../user/login/login.component';
 
 @Component({
   selector: 'app-property',
   standalone: true,
-  imports: [CurrencyPipe,NoimagePipe,LoadingComponent,AmenitiesComponent,ReviewsPropComponent,MapComponent],
+  imports: [CurrencyPipe,NoimagePipe,LoadingComponent,AmenitiesComponent,ReviewsPropComponent,MapComponent,RegisterComponent,LoginComponent],
   templateUrl: './property.component.html',
   styleUrl: './property.component.css'
 })

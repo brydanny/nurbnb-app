@@ -5,7 +5,7 @@ export const environment = {
   apiUrls: {
     review: 'http://localhost:3001/',
     property: 'http://localhost:3000/',
-    security: 'http://localhost:3002/',
+    security: 'http://3.12.28.232:3000/',
     booking: 'http://localhost:3003/',
   }
 };
