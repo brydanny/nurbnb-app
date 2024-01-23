@@ -1,0 +1,14 @@
+<div class="row" style="padding-bottom: 20px;">
+  <div class="col">
+    <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="¿A dónde vas?">
+  </div>
+</div>
+@if (loading) {
+  <app-loading></app-loading>
+}
+@if (error) {
+  <div class="alert alert-danger" role="alert">
+    {{msgError}}
+  </div>
+}
+<app-card [items]="properties"></app-card>

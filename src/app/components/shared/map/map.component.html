@@ -1,0 +1,15 @@
+
+<google-map height="500px"
+            width="100%"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+<!--             @for (position of markerPositions; track position) {
+              <map-marker [position]="position" [options]="markerOptions" />
+            } -->
+            <map-marker [position]="position" [options]="markerOptions" />
+</google-map>
+<!--
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div> -->

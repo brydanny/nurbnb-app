@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    @for (comment of reviews; track $index) {
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            <img src="/assets/img/usuario.jpeg" alt="" class="img-thumbnail img-circle">
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ comment.comentario }}</p>
+          </div>
+          <div class="card-footer text-muted">
+            {{ comment.registerDate | date: 'medium' }}
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

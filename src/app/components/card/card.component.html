@@ -1,0 +1,16 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @for (property of items; track $index) {
+    <div class="col puntero"  (click)="verPropiedad(property)">
+      <div  class="card h-100">
+        <img class="card-img-top" src="{{property.urls[0] | noimage}}"  alt="{{property.name}}" width="305" height="290" style="object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{property.name}}</h5>
+          <p class="card-text" style="color: #7E7E7E;">{{property.description}}</p>
+          <p class="card-title" style="font-weight: bold;">
+            {{property.pricePerNight | currency:'USD':true:'1.0-0'}} noche
+          </p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

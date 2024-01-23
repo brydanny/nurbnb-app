@@ -1,0 +1,9 @@
+@if (loading) {
+  <app-loading></app-loading>
+}
+@if (error) {
+  <div class="alert alert-danger" role="alert">
+    {{msgError}}
+  </div>
+}
+<app-card [items]="properties"></app-card>

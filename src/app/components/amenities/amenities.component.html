@@ -1,0 +1,18 @@
+<div class="row" style="padding-bottom: 10px;">
+  <h5 class="card-title">Lo que este lugar ofrece</h5>
+</div>
+
+<div class="container">
+  <div class="row">
+    @for (amenity of items; track $index) {
+    <div class="col-md-6 col-sm-6" style="background-color: green;">
+      <div clase="mb-6" style="background-color: blue;padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+        <div class="card-body" style="background-color: red;">
+          <img src="/assets/img/{{ amenity}}.svg" alt="" width="30" height="22" style="object-fit: cover; padding-right: 5px;">
+          <span class="card-text">{{ amenity}}</span>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

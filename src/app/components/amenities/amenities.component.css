@@ -1,0 +1,11 @@
+.content-text{
+  text-align: left;
+  padding-left: 2px;
+  margin-right: 0px;
+}
+.content-text-dec{
+text-align: left;
+padding-left: 2px;
+margin-right: 0px;
+text-decoration:line-through;
+}

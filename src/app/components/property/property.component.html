@@ -1,0 +1,105 @@
+@if (loading) {
+  <app-loading></app-loading>
+}@else{
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11">
+        <h1>{{property.name}}</h1>
+      </div>
+      <div class="col-6 col-lg-1 text-right">
+        <button class="btn btn-outline-danger" (click)="returnHome()">Regresar</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"  style="border: 1px solid #EBEBEB;padding-left: 0px; padding-bottom: 0px;">
+        <div  class="card h-100">
+          <img class="card-img-top" src="{{property.urls[0] | noimage}}"  alt="{{property.name}}" width="250" height="500" style="object-fit: cover;">
+        </div>
+      </div>
+      <div class="col"  style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; padding-right: 0px;">
+        <div class="row">
+          <div class="col" style="padding-left: 4px; padding-top: 0px; padding-bottom: 2px; padding-right: 0px;">
+            <div  class="card h-100">
+              <img class="card-img-top" src="{{property.urls[1] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
+            </div>
+          </div>
+          <div class="col" style="padding-left: 4px; padding-top: 0px; padding-bottom: 2px;">
+            <div  class="card h-100">
+              <img class="card-img-top" src="{{property.urls[2] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="padding-left: 4px; padding-top: 4px; padding-bottom: 0px;padding-right: 0px;">
+            <div  class="card h-100">
+              <img class="card-img-top" src="{{property.urls[3] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
+            </div>
+          </div>
+          <div class="col" style="padding-left: 4px; padding-top: 4px; padding-bottom: 0px;">
+            <div  class="card h-100">
+              <img class="card-img-top" src="{{property.urls[4] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top: 20px;">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col" style="padding-top: 0px; padding-bottom: 15px; border-bottom: 2px solid #EBEBEB;">
+            <h3 class="card-title">{{property.address.street}}</h3>
+            <p class="card-text" style="color: #7E7E7E;">{{property.capacity}} huéspedes - {{property.rooms}} habitaciones - {{property.beds}} camas - {{property.bathrooms}} baños  </p>
+            <p class="card-title" style="font-weight: bold;">
+            {{property.pricePerNight | currency:'USD':true:'1.0-0'}} noche - 12 reseñas
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="padding-top: 10px; padding-bottom: 15px; border-bottom: 2px solid #EBEBEB;">
+            <div class="row">
+              <div class="col-lg-1">
+                  <img src="/assets/img/usuario.jpeg" alt="" class="img-thumbnail img-circle">
+
+              </div>
+              <div class="col-lg-11">
+                <p class="card-title" style="font-weight: bold;">
+                  Anfitrion: Juan
+                </p>
+                <p class="card-text" style="color: #7E7E7E;">2 años anfitrionando  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="padding-top: 10px; padding-bottom: 15px; border-bottom: 2px solid #EBEBEB;">
+            <app-amenities [items]="property.amenities"></app-amenities>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 text-right" style="background-color: red;">
+        pruebas
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"  style="border: 1px solid #EBEBEB;padding-left: 0px; padding-bottom: 0px;">
+        <app-reviews-prop [propertyId]="property._id"></app-reviews-prop>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"  style="border: 1px solid red; padding-left: 0px; padding-bottom: 0px;">
+        <app-map></app-map>
+      </div>
+    </div>
+  </div>
+
+}
+
+
