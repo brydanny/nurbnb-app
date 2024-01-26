@@ -25,20 +25,25 @@ export class HttpService {
     return this.httpRequest('GET', url);
    }
 
-   public post(endpoint: string, data: any, nameService :string = ''):any {
+   public post(endpoint: string, data: any, nameService :string = '', header?:any):any {
     const url = `${UrlService.getUrlByKey(nameService)}${endpoint}`;
-    return this.httpRequest('POST', url, data);
+    console.log('url');
+    console.log(header);
+    return this.httpRequest('POST', url, data,header);
    }
 
-  private httpRequest( method: string, url: string, data = null) {
+  private httpRequest( method: string, url: string, data = null, header = null) {
     console.log('Http service listo');
-    //const headers: HttpHeaders = this.HEADERS;
+    const headers: HttpHeaders = header ? header : new HttpHeaders();
     const option = {
       body: data,
+      headers: headers
     }
+    console.log(url);
+    console.log(option);
     try{
       //headers.set('Authorization', `Bearer ${this.TOKEN}`);
-      return this.http.request(method, url,option);
+      return this.http.request(method, url, option);
     }
     catch(error:any){
       console.log(error);

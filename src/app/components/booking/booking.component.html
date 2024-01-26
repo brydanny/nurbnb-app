@@ -1,0 +1,18 @@
+<div class="row" style="padding-bottom: 10px;">
+  <h5 class="card-title">Reserva</h5>
+</div>
+<form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
+  <div class="mb-3">
+    <label for="checkInDate">Llegada</label>
+    <input type="text" class="form-control" formControlName="checkInDate" placeholder="Llegada">
+  </div>
+  <div class="mb-3">
+    <label for="checkOutDate">Salida</label>
+    <input type="text" class="form-control" formControlName="checkOutDate" placeholder="Salida">
+  </div>
+  <div class="mb-3">
+    <label for="numberOfGuests">Huéspedes</label>
+    <input type="text" class="form-control" formControlName="numberOfGuests" placeholder="Huéspedes">
+  </div>
+  <input type="submit" value="Reserva" class="btn btn-danger">
+</form>

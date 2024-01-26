@@ -41,8 +41,8 @@ export class RegisterComponent {
     console.log("user");
     this.user.country = "Bolivia";
     this.user.city = "La Paz";
-    this.user.isHost = false;
-    this.user.isGuest = true;
+    this.user.isHost = true;
+    this.user.isGuest = false;
     console.log(this.user);
 
     this.userService.register(this.user).subscribe((data: any) => {

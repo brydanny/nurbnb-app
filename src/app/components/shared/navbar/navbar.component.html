@@ -19,6 +19,17 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/search']">Búsqueda</a>
         </li>
+        @if (userService.isLogged()) {
+          <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/booking']">Mis reservas</a>
+        </li>
+        }
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" (click)="onClickLogout()">Logout</a>
+        </li>
       </ul>
     </div>
     <div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from './../../../services/user.service';
 import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
-
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -31,6 +31,9 @@ export class LoginComponent {
     console.log(this.formulario.value);
     this.userService.login(this.formulario.value).subscribe((data: any) => {
       console.log(data);
+      localStorage.setItem('token-nurbnb', data.access_token);
+      let decodeTokent = jwtDecode(data.access_token);
+      console.log(decodeTokent);
       this.loading = false;
     }, (error: any) => {
       this.error = true;

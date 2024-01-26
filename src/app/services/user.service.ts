@@ -19,4 +19,7 @@ export class UserService {
    login(user:User){
     return this.httpService.post('security/login',user,this.nameService);
    }
+   isLogged():boolean{
+     return !!localStorage.getItem('token-nurbnb');
+   }
 }

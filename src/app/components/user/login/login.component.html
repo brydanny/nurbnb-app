@@ -3,13 +3,13 @@
 </div>
 <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
 <div class="mb-3">
-  <label for="">mail</label>
-  <input type="email" class="form-control" formControlName="email">
+  <label for="">Email</label>
+  <input type="email" class="form-control" formControlName="email" placeholder="Login">
 </div>
 <div class="mb-3">
   <label for="">password</label>
-  <input type="password" class="form-control" formControlName="password">
+  <input type="password" class="form-control" formControlName="password" placeholder="password">
 </div>
-<input type="submit" value="enviar" class="btn btn-info">
+<input type="submit" value="Login" class="btn btn-danger">
 
 </form>
