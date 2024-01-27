@@ -4,11 +4,12 @@
 <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
   <div class="mb-3">
     <label for="checkInDate">Llegada</label>
-    <input type="text" class="form-control" formControlName="checkInDate" placeholder="Llegada">
+    <input type="date" class="form-control" formControlName="checkInDate" placeholder="Llegada">
+
   </div>
   <div class="mb-3">
     <label for="checkOutDate">Salida</label>
-    <input type="text" class="form-control" formControlName="checkOutDate" placeholder="Salida">
+    <input type="date" class="form-control" formControlName="checkOutDate" placeholder="Salida">
   </div>
   <div class="mb-3">
     <label for="numberOfGuests">Huéspedes</label>

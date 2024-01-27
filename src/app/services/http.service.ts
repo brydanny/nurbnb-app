@@ -20,9 +20,9 @@ export class HttpService {
   });
   constructor(private http: HttpClient) { }
 
-  public get(endpoint: string, nameService :string = ''):any {
+  public get(endpoint: string, nameService :string = '', header?:any):any {
     const url = `${UrlService.getUrlByKey(nameService)}${endpoint}`;
-    return this.httpRequest('GET', url);
+    return this.httpRequest('GET', url,null,header);
    }
 
    public post(endpoint: string, data: any, nameService :string = '', header?:any):any {

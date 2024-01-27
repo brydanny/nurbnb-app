@@ -1,0 +1,45 @@
+.border-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+
+}
+.border-card-content {
+  border: 1px solid #EBEBEB;
+  padding-left: 0px;
+  padding-bottom: 0px;
+
+}
+.border-card-content-child {
+ padding: 0px;
+ border-radius: 5px;
+}
+.border-card-content-child .card-top {
+  padding-left: 4px;
+  padding-top: 0px;
+  padding-bottom: 2px;
+  padding-right: 0px;
+  border-radius: 5px;
+}
+.border-card-content-child .card-bottom{
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  border-radius: 5px;
+
+}
+
+.border-card-map {
+  border: 1px solid #EBEBEB;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  object-fit: cover;
+  align-content: center;
+  /* border-radius: 5px; */
+}
+
+
+
+

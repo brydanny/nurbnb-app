@@ -1,6 +1,11 @@
 @if (loading) {
   <app-loading></app-loading>
-}@else{
+}
+@if (error) {
+  <div class="alert alert-danger" role="alert">
+    {{msgError}}
+  </div>
+}
   <div class="container">
     <div class="row">
       <div class="col-lg-11">
@@ -13,31 +18,31 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col"  style="border: 1px solid #EBEBEB;padding-left: 0px; padding-bottom: 0px;">
+      <div class="col border-card-content">
         <div  class="card h-100">
           <img class="card-img-top" src="{{property.urls[0] | noimage}}"  alt="{{property.name}}" width="250" height="500" style="object-fit: cover;">
         </div>
       </div>
-      <div class="col"  style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; padding-right: 0px;">
+      <div class="col border-card-content-child">
         <div class="row">
-          <div class="col" style="padding-left: 4px; padding-top: 0px; padding-bottom: 2px; padding-right: 0px;">
+          <div class="col card-top">
             <div  class="card h-100">
               <img class="card-img-top" src="{{property.urls[1] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
             </div>
           </div>
-          <div class="col" style="padding-left: 4px; padding-top: 0px; padding-bottom: 2px;">
+          <div class="col card-top">
             <div  class="card h-100">
               <img class="card-img-top" src="{{property.urls[2] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col" style="padding-left: 4px; padding-top: 4px; padding-bottom: 0px;padding-right: 0px;">
+          <div class="col card-bottom">
             <div  class="card h-100">
               <img class="card-img-top" src="{{property.urls[3] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
             </div>
           </div>
-          <div class="col" style="padding-left: 4px; padding-top: 4px; padding-bottom: 0px;">
+          <div class="col card-bottom" >
             <div  class="card h-100">
               <img class="card-img-top" src="{{property.urls[4] | noimage}}"  alt="{{property.name}}" width="246" height="246" style="object-fit: cover;">
             </div>
@@ -62,14 +67,15 @@
           <div class="col" style="padding-top: 10px; padding-bottom: 15px; border-bottom: 2px solid #EBEBEB;">
             <div class="row">
               <div class="col-lg-1">
-                  <img src="/assets/img/usuario.jpeg" alt="" class="img-thumbnail img-circle">
+                  <!-- <img src="/assets/img/usuario.jpeg" alt="" class="img-thumbnail img-circle"> -->
+                  <img src="https://ui-avatars.com/api/?name={{property.host.name}}+{{property.host.lastname}}&background=random" class="img-thumbnail img-circle">
 
               </div>
               <div class="col-lg-11">
                 <p class="card-title" style="font-weight: bold;">
-                  Anfitrion: Juan
+                  Anfitrion: {{property.host.name}} {{property.host.lastname}}
                 </p>
-                <p class="card-text" style="color: #7E7E7E;">2 años anfitrionando  </p>
+                <p class="card-text" style="color: #7E7E7E;">{{property.host.city}} - {{property.host.country}}  </p>
               </div>
             </div>
           </div>
@@ -81,27 +87,26 @@
         </div>
       </div>
       <div class="col-6 col-lg-4 text-right" >
-       <!-- <app-register></app-register> -->
-          <app-booking></app-booking>
+          <app-booking  [propertyId]="property._id"></app-booking>
 
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col"  style="border: 1px solid #EBEBEB;padding-left: 0px; padding-bottom: 0px;">
+      <div class="col border-card-content">
         <app-reviews-prop [propertyId]="property._id"></app-reviews-prop>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col"  style="border: 1px solid red; padding-left: 0px; padding-bottom: 0px;">
-        <app-map></app-map>
+      <div class="col border-card-map">
+        <app-map [latitude]="property.address.latitude" [longitude]="property.address.longitude"></app-map>
       </div>
     </div>
   </div>
 
-}
+
 
 

@@ -1,11 +1,9 @@
-.content-text{
-  text-align: left;
-  padding-left: 2px;
-  margin-right: 0px;
+.card-content{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
-.content-text-dec{
-text-align: left;
-padding-left: 2px;
-margin-right: 0px;
-text-decoration:line-through;
+.content-image{
+  object-fit: cover;
+  padding-right: 5px;
 }

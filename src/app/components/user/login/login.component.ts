@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from './../../../services/user.service';
 import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
-import { jwtDecode } from 'jwt-decode';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,7 +17,9 @@ export class LoginComponent {
   msgError: string;
   loading: boolean;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private router: Router,
+            ) {
     this.error = false;
     this.msgError = '';
     this.loading = true;
@@ -32,9 +36,11 @@ export class LoginComponent {
     this.userService.login(this.formulario.value).subscribe((data: any) => {
       console.log(data);
       localStorage.setItem('token-nurbnb', data.access_token);
-      let decodeTokent = jwtDecode(data.access_token);
-      console.log(decodeTokent);
+    /*   let decodeTokent = jwtDecode(data.access_token);
+      console.log(decodeTokent); */
       this.loading = false;
+      this.router.navigate(['/home']);
+
     }, (error: any) => {
       this.error = true;
       console.log(error.message);

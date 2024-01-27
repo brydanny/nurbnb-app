@@ -21,15 +21,20 @@
         </li>
         @if (userService.isLogged()) {
           <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/booking']">Mis reservas</a>
+          <a class="nav-link" [routerLink]="['/booking-list']">Mis reservas</a>
+            </li>
+        }
+        @if (!userService.isLogged()) {
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/login']">Iniciar Sesión</a>
         </li>
         }
+
+        @if (userService.isLogged()) {
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
+          <a class="nav-link" (click)="onClickLogout()">Cerrar Sesión</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" (click)="onClickLogout()">Logout</a>
-        </li>
+        }
       </ul>
     </div>
     <div>
