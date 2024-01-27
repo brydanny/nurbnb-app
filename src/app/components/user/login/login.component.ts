@@ -37,7 +37,7 @@ export class LoginComponent {
     this.msgError = '';
     if (!this.formulario.valid) {
       this.error = true;
-      this.msgError = 'Todos los campos son requeridos';
+      this.msgError = 'Todos los elementos son requeridos';
       this.loading = false;
       return;
     }
