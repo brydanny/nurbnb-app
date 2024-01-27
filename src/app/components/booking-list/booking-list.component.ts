@@ -3,12 +3,14 @@ import { Component } from '@angular/core';
 import { LoadingComponent } from '../shared/loading/loading.component';
 import { NoimagePipe } from '../../pipes/noimage.pipe';
 import { UserService } from '../../services/user.service';
+import { DateFormatPipe } from '../../pipes/date-format.pipe';
+
 
 
 @Component({
   selector: 'app-booking-list',
   standalone: true,
-  imports: [LoadingComponent,NoimagePipe],
+  imports: [LoadingComponent,NoimagePipe,DateFormatPipe],
   templateUrl: './booking-list.component.html',
   styleUrl: './booking-list.component.css'
 })
@@ -18,6 +20,9 @@ export class BookingListComponent {
   error: boolean;
   msgError: string;
   idUser: string;
+  isGuest: boolean;
+  isHost: boolean;
+  // formattedDate: string;
 
 
   constructor(private bookingService: BookingService,
@@ -28,6 +33,8 @@ export class BookingListComponent {
     this.error = false;
     this.msgError = '';
     this.idUser = '';
+    this.isGuest = this.userService.getIsGuest();
+    this.isHost = this.userService.getIsHost();
 
     if(!this.userService.isLogged()){
       this.error = true;
@@ -35,9 +42,9 @@ export class BookingListComponent {
       this.loading = false;
       return;
     }
-    if(this.userService.getIsGuest()){
+    if(this.isGuest){
       this.idUser = this.userService.getIdGuest();
-    } else if(this.userService.getIsHost()){
+    } else if(this.isHost){
       this.idUser = this.userService.getIdHost();
     }
     console.log('BookingListComponent- IDUSER' + this.idUser);

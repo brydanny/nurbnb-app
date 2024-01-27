@@ -23,12 +23,24 @@
                   <div class="col">
                     <h5 class="card-title">{{booking.property.name}}</h5>
                     <h6 class="card-text">{{booking.property.address.street}} - {{booking.property.address.city}} - {{booking.property.address.countryCode}}</h6>
-                    <p class="card-text">{{booking.checkInDate}} -  {{booking.checkOutDate}}</p>
-                    @if(booking.bookingState == 'Pendiente') {
-                      <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger"></p>
-                    } @else {
-                      <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger disabled"></p>
+                    <p class="card-text">{{booking.checkInDate | dateFormat}} -  {{booking.checkOutDate | dateFormat}}</p>
+                    @if (isGuest) {
+                      @if(booking.bookingState == 'Pendiente') {
+                        <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger"></p>
+                      } @else {
+                        <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger disabled"></p>
+                      }
                     }
+                    @if (isHost) {
+                      @if(booking.bookingState == 'Pendiente') {
+                        <p class="card-text"><input type="submit" value="Confirmar" class="btn btn-danger"></p>
+                        <p class="card-text"><input type="submit" value="Cancelar" class="btn btn-danger "></p>
+                      } @else {
+                        <p class="card-text"><input type="submit" value="Confirmar" class="btn btn-danger disabled"></p>
+                        <p class="card-text"><input type="submit" value="Cancelar" class="btn btn-danger disabled"></p>
+                      }
+                    }
+
                   </div>
                   <div class="col">
                     <div class="row mb-3">
@@ -42,17 +54,33 @@
                         }
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-lg-4">
-                        <img src="https://ui-avatars.com/api/?name={{booking.property.host.name}}+{{booking.property.host.lastname}}&background=random" class="img-thumbnail img-circle">
+                    @if(isGuest){
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <img src="https://ui-avatars.com/api/?name={{booking.property.host.name}}+{{booking.property.host.lastname}}&background=random" class="img-thumbnail img-circle">
+                        </div>
+                        <div class="col-lg-8">
+                          <p class="card-title" style="font-weight: bold;">
+                            Anfitrion: {{booking.property.host.name}} {{booking.property.host.lastname}}
+                          </p>
+                          <p class="card-text" style="color: #7E7E7E;">{{booking.property.host.city}} - {{booking.property.host.country}}  </p>
+                        </div>
                       </div>
-                      <div class="col-lg-8">
-                        <p class="card-title" style="font-weight: bold;">
-                          Anfitrion: {{booking.property.host.name}} {{booking.property.host.lastname}}
-                        </p>
-                        <p class="card-text" style="color: #7E7E7E;">{{booking.property.host.city}} - {{booking.property.host.country}}  </p>
+                    }
+                    @if(isHost){
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <img src="https://ui-avatars.com/api/?name={{booking.guest.name}}+{{booking.guest.lastname}}&background=random" class="img-thumbnail img-circle">
+                        </div>
+                        <div class="col-lg-8">
+                          <p class="card-title" style="font-weight: bold;">
+                            Huésped: {{booking.guest.name}} {{booking.guest.lastname}}
+                          </p>
+                          <p class="card-text" style="color: #7E7E7E;">{{booking.guest.city}} - {{booking.guest.country}}  </p>
+                        </div>
                       </div>
-                    </div>
+                    }
+
 
                   </div>
                 </div>
