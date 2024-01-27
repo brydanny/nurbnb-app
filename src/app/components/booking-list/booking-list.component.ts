@@ -4,6 +4,7 @@ import { LoadingComponent } from '../shared/loading/loading.component';
 import { NoimagePipe } from '../../pipes/noimage.pipe';
 import { UserService } from '../../services/user.service';
 import { DateFormatPipe } from '../../pipes/date-format.pipe';
+import { Router } from '@angular/router';
 
 
 
@@ -26,7 +27,8 @@ export class BookingListComponent {
 
 
   constructor(private bookingService: BookingService,
-              private userService: UserService
+              private userService: UserService,
+              private router: Router
              )
   {
     this.loading = true;
@@ -62,13 +64,26 @@ export class BookingListComponent {
     });
 
   }
-/*   formatDateRange(startDate: string, endDate: string): string {
-    const options: DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
-    const formattedStartDate = new Date(startDate).toLocaleDateString('en-US', options);
-    const formattedEndDate = new Date(endDate).toLocaleDateString('en-US', options);
 
-    return `${formattedStartDate} - ${formattedEndDate}`;
-  } */
+  confirmBooking(id:string){
+    console.log('BookingListComponent- CONFIRM BOOKING' + id  );
+    this.bookingService.confirmBooking(id).subscribe((data: any) => {
+      console.log('BookingListComponent- BOOKINGS');
+      console.log(data);
+      //this.bookings = data;
+      this.loading = false;
+      //this.router.navigate(['/booking-list']);
+      this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/booking-list']);
+    });
+
+    }, (error: any) => {
+      this.error = true;
+      console.log(error.message);
+      this.msgError = error.message;
+      this.loading = false;
+    });
+  }
 
 
 }

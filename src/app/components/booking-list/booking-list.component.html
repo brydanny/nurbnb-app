@@ -7,6 +7,13 @@
   </div>
 }
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Mis Reservas</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
 
   @for(booking of bookings; track $index) {
       <div class="container">
@@ -26,14 +33,17 @@
                     <p class="card-text">{{booking.checkInDate | dateFormat}} -  {{booking.checkOutDate | dateFormat}}</p>
                     @if (isGuest) {
                       @if(booking.bookingState == 'Pendiente') {
-                        <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger"></p>
+                        <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger"> </p>
                       } @else {
                         <p class="card-text"><input type="submit" value="Pagar" class="btn btn-danger disabled"></p>
                       }
                     }
                     @if (isHost) {
                       @if(booking.bookingState == 'Pendiente') {
-                        <p class="card-text"><input type="submit" value="Confirmar" class="btn btn-danger"></p>
+                        <p class="card-text">
+                          <!-- <input type="submit" value="Confirmar" class="btn btn-danger"> -->
+                          <button class="btn btn-danger" (click)="confirmBooking(booking._id)">Confirmar</button>
+                        </p>
                         <p class="card-text"><input type="submit" value="Cancelar" class="btn btn-danger "></p>
                       } @else {
                         <p class="card-text"><input type="submit" value="Confirmar" class="btn btn-danger disabled"></p>
@@ -97,5 +107,3 @@
     }
 
 </div>
-
-

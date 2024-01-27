@@ -8,7 +8,7 @@ import moment from 'moment';
 export class DateFormatPipe implements PipeTransform {
 
   transform(value: string): string {
-    console.log('Pipe- DateFormatPipe');
+    //console.log('Pipe- DateFormatPipe');
 
     return moment(value).locale('es').format('ll');
   }

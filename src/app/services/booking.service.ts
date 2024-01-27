@@ -33,6 +33,9 @@ export class BookingService {
       }
       return this.httpService.get('booking',this.nameService, this.createHeaders());
   }
+  confirmBooking(id:string){
+    return this.httpService.post(`booking/${id}/confirm`,null,this.nameService, this.createHeaders());
+  }
 
 }
 

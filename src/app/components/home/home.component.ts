@@ -24,10 +24,8 @@ export class HomeComponent {
     this.propertyService.getProperties().subscribe((data: any) => {
       console.log('HomeComponent- PROPERTIES');
       console.log(data);
-      //console.log(data[0].name);
       this.properties = data;
       this.loading = false;
-      //console.log(this.properties[0].name);
     }, (error: any) => {
       this.error = true;
       console.log(error.message);

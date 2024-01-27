@@ -1,3 +1,11 @@
+@if (loading) {
+  <app-loading></app-loading>
+}
+@if (error) {
+  <div class="alert alert-danger" role="alert">
+    {{msgError}}
+  </div>
+}
 <div class="row" style="padding-bottom: 10px;">
   <h5 class="card-title">Inicia sesión</h5>
 </div>

@@ -35,6 +35,7 @@ export class HttpService {
   private httpRequest( method: string, url: string, data = null, header = null) {
     console.log('Http service listo');
     const headers: HttpHeaders = header ? header : new HttpHeaders();
+    console.log(data);
     const option = {
       body: data,
       headers: headers
