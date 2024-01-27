@@ -9,11 +9,6 @@
 <div class="container">
 
   @for(booking of bookings; track $index) {
-    <!--   <div class="row row-cols-1 row-cols-md-1 g-1">
-        <div class="col">
-        <div class="card h-100">{{booking.property.name}}</div>
-        </div>
-      </div> -->
       <div class="container">
         <div class="row">
           <div class="col-md-4 mb-4">
@@ -38,7 +33,13 @@
                   <div class="col">
                     <div class="row mb-3">
                       <div class="col d-flex justify-content-center">
-                        <span class="badge rounded-pill bg-warning text-dark">{{booking.bookingState}}</span>
+                        @if(booking.bookingState == 'Pendiente') {
+                          <span class="badge rounded-pill bg-warning text-dark">{{booking.bookingState}}</span>
+                        } @else if(booking.bookingState == 'Pagado') {
+                          <span class="badge rounded-pill bg-success text-white">{{booking.bookingState}}</span>
+                        } @else {
+                          <span class="badge rounded-pill bg-danger text-white">{{booking.bookingState}}</span>
+                        }
                       </div>
                     </div>
                     <div class="row">
